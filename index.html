@@ -1,0 +1,356 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#09070e">
+  <meta name="description" content="Psico World — sua comunidade, seu mundo. Entre para conversar, jogar e conhecer pessoas.">
+  <title>Psico World — Comunidade</title>
+
+  <style>
+    :root {
+      --bg: #09070e;
+      --panel: #13101b;
+      --purple: #b66aff;
+      --purple2: #8b35d5;
+      --text: #f7f1ff;
+      --muted: #b6aabd;
+      --border: #30213d;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    header {
+      min-height: 76px;
+      padding: 18px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      background: rgba(9, 7, 14, .95);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logo {
+      color: var(--purple);
+      font-weight: 900;
+      font-size: 19px;
+      letter-spacing: 2px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 19px;
+    }
+
+    nav a {
+      font-size: 13px;
+      color: #d5c9df;
+      transition: color .2s;
+    }
+
+    nav a:hover { color: var(--purple); }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      padding: 105px 20px 95px;
+      background:
+        radial-gradient(ellipse at 50% 0%, #46215f 0%, transparent 65%),
+        linear-gradient(180deg, #100a19, var(--bg));
+    }
+
+    .eyebrow {
+      display: inline-block;
+      border: 1px solid #633d7d;
+      color: #d8b3ff;
+      padding: 7px 13px;
+      border-radius: 30px;
+      font-size: 10px;
+      letter-spacing: 2px;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 9vw, 76px);
+      line-height: 1.08;
+      letter-spacing: -2px;
+      margin-bottom: 23px;
+    }
+
+    h1 span {
+      color: var(--purple);
+    }
+
+    .hero p {
+      max-width: 550px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 48px;
+      padding: 12px 22px;
+      border-radius: 9px;
+      font-size: 13px;
+      font-weight: bold;
+      transition: transform .2s, background .2s;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .primary {
+      color: white;
+      background: linear-gradient(135deg, #bc7bff, #8739d2);
+      box-shadow: 0 7px 28px #a64cff26;
+    }
+
+    .secondary {
+      border: 1px solid #493257;
+      background: #18111f;
+    }
+
+    section {
+      padding: 65px 7%;
+      text-align: center;
+      scroll-margin-top: 25px;
+    }
+
+    .section-label {
+      color: var(--purple);
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-size: clamp(27px, 5vw, 39px);
+      margin: 9px 0 13px;
+    }
+
+    .section-description {
+      color: var(--muted);
+      max-width: 540px;
+      margin: 0 auto;
+      font-size: 14px;
+    }
+
+    .cards {
+      max-width: 1000px;
+      margin: 34px auto 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 16px;
+      text-align: left;
+    }
+
+    .card {
+      background: linear-gradient(145deg, #191321, #100d16);
+      border: 1px solid var(--border);
+      padding: 25px;
+      border-radius: 14px;
+      transition: border-color .2s, transform .2s;
+    }
+
+    .card:hover {
+      border-color: #8652a8;
+      transform: translateY(-3px);
+    }
+
+    .card-number {
+      color: #bd7bff;
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+
+    .card h3 {
+      font-size: 18px;
+      margin: 13px 0 8px;
+    }
+
+    .card p {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .join {
+      margin: 20px auto;
+      max-width: 760px;
+      padding: 43px 22px;
+      border: 1px solid #503363;
+      border-radius: 17px;
+      background:
+        radial-gradient(ellipse at top, #382049, transparent 75%),
+        var(--panel);
+    }
+
+    .join p {
+      max-width: 460px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    footer {
+      padding: 26px 15px;
+      text-align: center;
+      color: #8e809b;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+    }
+
+    footer span { color: var(--purple); }
+
+    @media (max-width: 480px) {
+      header { justify-content: center; }
+      nav { justify-content: center; gap: 14px; }
+      .hero { padding-top: 78px; }
+      section { padding: 48px 6%; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a class="logo" href="#inicio">PSICO WORLD</a>
+
+    <nav aria-label="Navegação principal">
+      <a href="#inicio">Início</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#comunidade">Comunidade</a>
+      <a href="#entrar">Entrar</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="eyebrow">BEM-VINDO AO NOSSO MUNDO</div>
+
+      <h1>Sua comunidade.<br>
+        <span>Seu mundo.</span>
+      </h1>
+
+      <p>
+        Conheça pessoas, faça amizades e participe de uma
+        comunidade criada para conectar quem tem os mesmos interesses.
+      </p>
+
+      <div class="buttons">
+        <a class="btn primary"
+           href="https://discord.gg/ZzqKSqKb"
+           target="_blank"
+           rel="noopener noreferrer">
+          Entrar na Psico World ↗
+        </a>
+
+        <a class="btn secondary" href="#sobre">
+          Conhecer a comunidade
+        </a>
+      </div>
+    </section>
+
+    <section id="sobre">
+      <div class="section-label">SOBRE NÓS</div>
+      <h2>Mais que um servidor.</h2>
+      <p class="section-description">
+        A Psico World é um espaço para conhecer pessoas,
+        compartilhar momentos e construir novas amizades.
+        Entre e descubra o que nossa comunidade oferece.
+      </p>
+    </section>
+
+    <section id="comunidade">
+      <div class="section-label">EXPLORE</div>
+      <h2>Descubra a Psico World</h2>
+      <p class="section-description">
+        Um espaço para se conectar e participar.
+      </p>
+
+      <div class="cards">
+        <article class="card">
+          <div class="card-number">01 / SOCIAL</div>
+          <h3>Comunidade</h3>
+          <p>
+            Converse, conheça novos membros e faça amizades
+            dentro do nosso servidor.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-number">02 / DIVERSÃO</div>
+          <h3>Jogos e eventos</h3>
+          <p>
+            Participe das atividades, encontre pessoas para
+            jogar e aproveite os momentos com a comunidade.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-number">03 / NOVIDADES</div>
+          <h3>Atualizações</h3>
+          <p>
+            Fique por dentro dos anúncios e das novidades
+            publicadas no servidor.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="entrar">
+      <div class="join">
+        <div class="section-label">FAÇA PARTE</div>
+        <h2>Seu lugar é aqui.</h2>
+        <p>
+          Venha conhecer a comunidade Psico World.
+          Estamos esperando você no Discord.
+        </p>
+
+        <div class="buttons">
+          <a class="btn primary"
+             href="https://discord.gg/ZzqKSqKb"
+             target="_blank"
+             rel="noopener noreferrer">
+            Acessar servidor Discord ↗
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 <span>Psico World</span> · Todos os direitos reservados.
+  </footer>
+</body>
+</html>
